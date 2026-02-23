@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strength Training - FitZone</title>
+    <link rel="icon" href="gymlogo.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            border: 2px solid #ff6b35;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b35;
+        }
+
+        /* Hero Header */
+        .hero {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: #ff6b35;
+            text-align: center;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Info Cards */
+        .info-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            padding: 30px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 250px;
+            max-width: 320px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-card h3 {
+            color: #ff6b35;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .info-card p {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        /* Benefits List */
+        .benefits-list {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefits-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+        }
+
+        .benefits-list li:last-child {
+            border-bottom: none;
+        }
+
+        .benefit-icon {
+            font-size: 1.8rem;
+            color: #ff6b35;
+            min-width: 40px;
+        }
+
+        /* Workout Types */
+        .workout-types {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .workout-type {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #ff6b35;
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .workout-type h4 {
+            color: #ff6b35;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .workout-type p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Tips Section */
+        .tips-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .tip {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 200px;
+            max-width: 280px;
+        }
+
+        .tip h5 {
+            color: #ff6b35;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .tip p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            background: #ff6b35;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background: #ff8c42;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 80px;
+        }
+
+        footer p {
+            margin: 10px 0;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.8rem;
+            }
+
+            .info-card {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .workout-type {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .benefits-list {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 20px 10px;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="FitZone Logo">
+                <span class="logo-text">FitZone</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="interface.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>💪 Strength Training</h1>
+        <p>Build Muscle, Increase Power, and Transform Your Physique</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Overview Section -->
+        <section class="section" id="about">
+            <h2>What is Strength Training?</h2>
+            <p>
+                Strength training, also known as resistance training or weight training, is a form of physical exercise that uses resistance to build muscle strength and endurance. It involves performing exercises where muscles work against opposing forces to build and strengthen muscle tissue.
+            </p>
+            <p>
+                Whether you're using weight machines, free weights, resistance bands, or your own body weight, strength training is an essential component of any comprehensive fitness program. It's not just for bodybuilders—it's for anyone looking to improve their health, fitness, and quality of life.
+            </p>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="section">
+            <h2>Key Benefits</h2>
+            <div class="benefits-list">
+                <ul>
+                    <li><span class="benefit-icon">🏋️</span><strong>Increased Muscle Mass:</strong> Build and tone muscles throughout your body</li>
+                    <li><span class="benefit-icon">⚡</span><strong>Improved Strength:</strong> Enhance your ability to perform daily activities easily</li>
+                    <li><span class="benefit-icon">🔥</span><strong>Boosted Metabolism:</strong> Increase calorie burn and support healthy weight management</li>
+                    <li><span class="benefit-icon">🦴</span><strong>Strong Bones:</strong> Improve bone density and reduce osteoporosis risk</li>
+                    <li><span class="benefit-icon">❤️</span><strong>Better Heart Health:</strong> Reduce blood pressure and improve cardiovascular function</li>
+                    <li><span class="benefit-icon">🧠</span><strong>Mental Health:</strong> Reduce stress, anxiety, and improve overall mood</li>
+                    <li><span class="benefit-icon">⏰</span><strong>Functional Fitness:</strong> Make everyday tasks easier and more comfortable</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Types of Strength Training -->
+        <section class="section">
+            <h2>Types of Strength Training</h2>
+            <div class="workout-types">
+                <div class="workout-type">
+                    <h4>Free Weights</h4>
+                    <p>Dumbbells, barbells, and kettlebells allow for natural movement patterns and engage stabilizer muscles effectively.</p>
+                </div>
+                <div class="workout-type">
+                    <h4>Weight Machines</h4>
+                    <p>Provide guided movement paths, making them ideal for beginners and those recovering from injuries.</p>
+                </div>
+                <div class="workout-type">
+                    <h4>Resistance Bands</h4>
+                    <p>Portable and versatile, they offer variable resistance and are perfect for home workouts and travel.</p>
+                </div>
+                <div class="workout-type">
+                    <h4>Bodyweight Exercises</h4>
+                    <p>Push-ups, pull-ups, and squats require no equipment and can be done anywhere, anytime.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips Section -->
+        <section class="section">
+            <h2>Essential Strength Training Tips</h2>
+            <div class="tips-grid">
+                <div class="tip">
+                    <h5>📋 Start with Basics</h5>
+                    <p>Master proper form before increasing weight or intensity. Quality over quantity always wins.</p>
+                </div>
+                <div class="tip">
+                    <h5>👕 Warm Up First</h5>
+                    <p>Always warm up for 5-10 minutes before starting strength training to prevent injuries.</p>
+                </div>
+                <div class="tip">
+                    <h5>📈 Progressive Overload</h5>
+                    <p>Gradually increase weight, reps, or sets to continue making progress and building strength.</p>
+                </div>
+                <div class="tip">
+                    <h5>😴 Rest & Recovery</h5>
+                    <p>Allow 48 hours recovery between sessions targeting the same muscles for optimal growth.</p>
+                </div>
+                <div class="tip">
+                    <h5>🥗 Proper Nutrition</h5>
+                    <p>Eat enough protein and calories to support muscle growth and recovery after workouts.</p>
+                </div>
+                <div class="tip">
+                    <h5>💧 Stay Hydrated</h5>
+                    <p>Drink plenty of water before, during, and after your workouts to maintain performance.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workout Frequency -->
+        <section class="section">
+            <h2>Recommended Frequency</h2>
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>Beginners</h3>
+                    <p><strong>2-3 days per week</strong><br>Focus on learning proper form and building a foundation with lighter weights.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Intermediate</h3>
+                    <p><strong>3-4 days per week</strong><br>Increase intensity and variety while allowing adequate recovery time.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Advanced</h3>
+                    <p><strong>4-6 days per week</strong><br>Split training focuses on different muscle groups each day for maximum gains.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="section" style="text-align: center;">
+            <h2>Ready to Start Your Strength Training Journey?</h2>
+            <p>Join our community of fitness enthusiasts and transform your body today!</p>
+            <a href="interface.html" class="cta-button">Back to Home</a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 FitZone. All rights reserved.</p>
+        <p>Email: hello@fitzone.com | Phone: +1 (555) 123-4567</p>
+        <p>Follow us on social media for daily fitness tips and motivation!</p>
+    </footer>
+</body>
+</html>

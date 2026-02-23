@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexibility & Core - FitZone</title>
+    <link rel="icon" href="gymlogo.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        nav {
+            background-color: #2c3e50;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #9b59b6;
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: normal;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #9b59b6;
+        }
+
+        .hero {
+            background-color: #9b59b6;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-family: Georgia, serif;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #9b59b6;
+            font-family: Georgia, serif;
+            margin-bottom: 20px;
+            font-style: normal;
+        }
+
+        .section p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+            font-family: Arial, sans-serif;
+            line-height: 1.8;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: #f5f5f5;
+            padding: 25px;
+            border-radius: 8px;
+            border-top: 4px solid #9b59b6;
+            flex: 1;
+            min-width: 250px;
+            max-width: 320px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            color: #9b59b6;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #666;
+            font-family: Arial, sans-serif;
+        }
+
+        .list-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .list-section h2 {
+            font-size: 2rem;
+            color: #9b59b6;
+            font-family: Georgia, serif;
+            margin-bottom: 20px;
+        }
+
+        .list-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list-section li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+        }
+
+        .list-section li:before {
+            content: "• ";
+            color: #9b59b6;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .list-section li:last-child {
+            border-bottom: none;
+        }
+
+        .btn {
+            background-color: #9b59b6;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #7d3c98;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            font-family: Arial, sans-serif;
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            .card {
+                max-width: 100%;
+            }
+
+            .nav-links {
+                gap: 10px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 10px;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .nav-links {
+                gap: 5px;
+            }
+
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="FitZone Logo">
+                <span class="logo-text">FitZone</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="interface.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#exercises">Exercises</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>🧘 Flexibility & Core</h1>
+        <p>Build Strength, Flexibility, and Balance</p>
+    </section>
+
+    <div class="container">
+        <section class="section" id="about">
+            <h2>What is Flexibility & Core Training?</h2>
+            <p>Flexibility and core training focuses on improving your body's range of motion, stability, and strength. These exercises enhance your overall fitness, improve posture, and reduce the risk of injuries.</p>
+            <p>Whether you practice yoga, pilates, or simple stretching routines, flexibility and core work is essential for a balanced fitness lifestyle.</p>
+        </section>
+
+        <section class="section" id="exercises">
+            <h2>Types of Exercises</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Yoga</h3>
+                    <p>Ancient practice that combines stretching, breathing, and meditation to improve flexibility and mental clarity.</p>
+                </div>
+                <div class="card">
+                    <h3>Pilates</h3>
+                    <p>Focused core strengthening exercises that improve posture, balance, and abdominal strength.</p>
+                </div>
+                <div class="card">
+                    <h3>Stretching</h3>
+                    <p>Simple but effective exercises to increase flexibility and reduce muscle tension.</p>
+                </div>
+                <div class="card">
+                    <h3>Planks & Core Work</h3>
+                    <p>Targeted exercises that build core stability and strengthen abdominal muscles.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="list-section">
+            <h2>Key Benefits</h2>
+            <ul>
+                <li>Improved Flexibility - Increase range of motion in joints and muscles</li>
+                <li>Stronger Core - Build abdominal and back muscles for better stability</li>
+                <li>Better Posture - Reduce back pain and improve body alignment</li>
+                <li>Enhanced Balance - Improve stability and reduce fall risk</li>
+                <li>Reduced Stress - Yoga and flexibility work promote relaxation</li>
+                <li>Injury Prevention - Flexible and strong muscles are less prone to injury</li>
+                <li>Better Athletic Performance - Essential for all sports and activities</li>
+            </ul>
+        </section>
+
+        <section class="list-section">
+            <h2>Recommended Routine</h2>
+            <ul>
+                <li>3-4 days per week for optimal results</li>
+                <li>30-45 minutes per session</li>
+                <li>Combine stretching, yoga, or pilates exercises</li>
+                <li>Always warm up before beginning</li>
+                <li>Never push yourself to the point of pain</li>
+                <li>Focus on proper breathing techniques</li>
+                <li>Rest at least one day between intense sessions</li>
+            </ul>
+        </section>
+
+        <section class="section" style="text-align: center;">
+            <h2>Ready to Improve Your Flexibility & Core?</h2>
+            <p>Start your flexibility and core training journey today for a stronger, more flexible body!</p>
+            <a href="interface.html" class="btn">Back to Home</a>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 FitZone. All rights reserved.</p>
+        <p>Email: hello@fitzone.com | Phone: +1 (555) 123-4567</p>
+    </footer>
+</body>
+</html>

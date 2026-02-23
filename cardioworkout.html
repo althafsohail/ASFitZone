@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardio Workouts - FitZone</title>
+    <link rel="icon" href="gymlogo.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        nav {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            border: 2px solid #4CAF50;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #4CAF50;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #4CAF50;
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            color: #4CAF50;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .benefits {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .benefits ul {
+            list-style: none;
+        }
+
+        .benefits li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1rem;
+        }
+
+        .benefits li:before {
+            content: "✓ ";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .benefits li:last-child {
+            border-bottom: none;
+        }
+
+        .cta-button {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .cta-button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 10px 0;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.8rem;
+            }
+
+            .card {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="FitZone Logo">
+                <span class="logo-text">FitZone</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="interface.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#types">Types</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>🏃 Cardio Workouts</h1>
+        <p>Boost Your Endurance and Heart Health</p>
+    </section>
+
+    <div class="container">
+        <section class="section" id="about">
+            <h2>What is Cardio?</h2>
+            <p>Cardio (cardiovascular) exercises are activities that elevate your heart rate and increase blood circulation throughout your body. These workouts strengthen your heart and lungs while burning calories and improving overall fitness.</p>
+            <p>From running and cycling to swimming and dancing, cardio workouts are available in many forms, making it easy to find an activity you enjoy.</p>
+        </section>
+
+        <section class="section" id="types">
+            <h2>Types of Cardio</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Running</h3>
+                    <p>High-impact cardio that builds leg strength and burns significant calories. Great for improving cardiovascular health.</p>
+                </div>
+                <div class="card">
+                    <h3>Cycling</h3>
+                    <p>Low-impact exercise that strengthens legs and improves endurance. Perfect for all fitness levels.</p>
+                </div>
+                <div class="card">
+                    <h3>Swimming</h3>
+                    <p>Full-body, low-impact workout that builds strength and endurance while being easy on joints.</p>
+                </div>
+                <div class="card">
+                    <h3>Jumping Rope</h3>
+                    <p>Intense cardio that improves coordination and burns calories quickly. No equipment needed!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Benefits of Cardio</h2>
+            <div class="benefits">
+                <ul>
+                    <li>Strengthens heart and improves cardiovascular health</li>
+                    <li>Burns calories and supports weight management</li>
+                    <li>Increases endurance and stamina</li>
+                    <li>Improves mood and mental health</li>
+                    <li>Reduces risk of heart disease and diabetes</li>
+                    <li>Boosts energy levels throughout the day</li>
+                    <li>Enhances sleep quality</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" style="text-align: center;">
+            <h2>Start Your Cardio Journey Today!</h2>
+            <p>30 minutes of moderate cardio, 5 days a week is recommended for optimal health.</p>
+            <a href="interface.html" class="cta-button">Back to Home</a>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 FitZone. All rights reserved.</p>
+        <p>Email: hello@fitzone.com | Phone: +1 (555) 123-4567</p>
+    </footer>
+</body>
+</html>
